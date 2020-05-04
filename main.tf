@@ -230,6 +230,7 @@ resource "kubernetes_daemonset" "this" {
         }
         dns_policy           = "ClusterFirstWithHostNet"
         host_network         = true
+        node_selector        = var.k8s_node_selector
         priority_class_name  = "system-node-critical"
         service_account_name = kubernetes_service_account.this.metadata[0].name
         dynamic "toleration" {
