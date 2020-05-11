@@ -117,7 +117,11 @@ resource "kubernetes_daemonset" "this" {
                 match_expressions {
                   key      = "kubernetes.io/arch"
                   operator = "In"
-                  values   = ["amd64"]
+                  values = [
+                    "amd64",
+                    "arm",
+                    "arm64"
+                  ]
                 }
               }
             }
@@ -221,6 +225,13 @@ resource "kubernetes_daemonset" "this" {
               cpu    = "50m"
               memory = "64Mi"
             }
+          }
+          security_context {
+            read_only_root_filesystem  = true
+            run_as_non_root            = true
+            run_as_user                = 1000
+            run_as_group               = 1000
+            allow_privilege_escalation = false
           }
           volume_mount {
             mount_path = "/proc/uptime"

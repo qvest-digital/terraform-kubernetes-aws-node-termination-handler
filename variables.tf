@@ -1,7 +1,7 @@
 variable "node_termination_handler_version" {
   description = "The metrics-server version to use. See https://github.com/aws/aws-node-termination-handler/releases for available versions"
   type        = string
-  default     = "1.3.1"
+  default     = "1.4.0"
 }
 
 variable "node_termination_grace_period" {
@@ -26,7 +26,7 @@ variable "k8s_node_selector" {
   description = "Node selector to make sure that the node termination handler only runs on spot instances."
   type        = map(string)
   default = {
-    "kubernetes.io/lifecycle" = "spot"
+    "lifecycle" = "Ec2Spot"
   }
 }
 
@@ -41,9 +41,9 @@ variable "k8s_node_tolerations" {
   default = [
     {
       effect   = "NoSchedule"
-      key      = "kubernetes.io/lifecycle"
+      key      = "lifecycle"
       operator = "Equal"
-      value    = "spot"
+      value    = "Ec2Spot"
     }
   ]
 }
