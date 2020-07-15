@@ -176,11 +176,11 @@ resource "kubernetes_daemonset" "this" {
           }
           env {
             name  = "DELETE_LOCAL_DATA"
-            value = "false"
+            value = var.delete_local_data
           }
           env {
             name  = "IGNORE_DAEMON_SETS"
-            value = "false"
+            value = var.ignore_daemon_sets
           }
           env {
             name  = "POD_TERMINATION_GRACE_PERIOD"
@@ -212,11 +212,27 @@ resource "kubernetes_daemonset" "this" {
           }
           env {
             name  = "ENABLE_SPOT_INTERRUPTION_DRAINING"
-            value = ""
+            value = var.enable_spot_interruption_draining
           }
           env {
-            name  = "ENABLE_SCHEDULED_DRAINING"
-            value = ""
+            name  = "ENABLE_SCHEDULED_EVENT_DRAINING"
+            value = var.enable_scheduled_event_draining
+          }
+          env {
+            name  = "METADATA_TRIES"
+            value = var.metadata_tries
+          }
+          env {
+            name  = "CORDON_ONLY"
+            value = var.cordon_only
+          }
+          env {
+            name  = "TAINT_NODE"
+            value = var.taint_node
+          }
+          env {
+            name  = "JSON_LOGGING"
+            value = var.json_logging
           }
           env {
             name  = "ENABLE_PROMETHEUS_SERVER"

@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2020-07-15
+
+This release introduces some breaking changes, because the *default values* of some
+of the options have been changed with the introduction of configurable behavior.
+Make sure to tune all configurable variables to your needs prior to upgrading to
+this new module version.
+
+### Added
+
+- Lots of variables have been added to allow changing the behavior of the node
+  termination handler.
+
 ## [1.2.0] - 2020-07-15
 
 ### Added
