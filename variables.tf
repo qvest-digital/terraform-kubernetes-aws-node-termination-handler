@@ -1,7 +1,7 @@
 variable "node_termination_handler_version" {
   description = "The metrics-server version to use. See https://github.com/aws/aws-node-termination-handler/releases for available versions"
   type        = string
-  default     = "1.4.0"
+  default     = "1.6.1"
 }
 
 variable "node_termination_grace_period" {
@@ -14,6 +14,12 @@ variable "pod_termination_grace_period" {
   description = "Period of time in seconds given to each POD to terminate gracefully. If negative, the default value specified in the pod will be used."
   type        = string
   default     = "-1"
+}
+
+variable "enable_prometheus_server" {
+  description = "Whether to enable a Prometheus endpoint that can be used to gather some metrics."
+  type        = bool
+  default     = false
 }
 
 variable "k8s_pod_annotations" {

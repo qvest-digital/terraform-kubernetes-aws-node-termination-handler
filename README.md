@@ -11,9 +11,8 @@ To deploy the aws-node-termination-handler into a Kubernetes cluster, the follow
 snippet might be used.
 
 ```hcl
-
 module "aws_node_termination_handler" {
   source  = "iplabs/aws-node-termination-handler/kubernetes"
-  version = "1.0.0"
+  version = "1.2.0"
 }
 ```

@@ -123,6 +123,11 @@ resource "kubernetes_daemonset" "this" {
                     "arm64"
                   ]
                 }
+                match_expressions {
+                  key      = "eks.amazonaws.com/compute-type"
+                  operator = "NotIn"
+                  values   = ["fargate"]
+                }
               }
             }
           }
@@ -213,9 +218,22 @@ resource "kubernetes_daemonset" "this" {
             name  = "ENABLE_SCHEDULED_DRAINING"
             value = ""
           }
+          env {
+            name  = "ENABLE_PROMETHEUS_SERVER"
+            value = var.enable_prometheus_server
+          }
+          env {
+            name  = "PROMETHEUS_SERVER_PORT"
+            value = "9092"
+          }
           image             = local.node_termination_handler_docker_image
           image_pull_policy = "IfNotPresent"
           name              = "aws-node-termination-handler"
+          port {
+            container_port = 9092
+            name           = "prometheus"
+            protocol       = "TCP"
+          }
           resources {
             limits {
               cpu    = "100m"
