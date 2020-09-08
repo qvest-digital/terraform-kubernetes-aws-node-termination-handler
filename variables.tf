@@ -1,7 +1,7 @@
 variable "node_termination_handler_version" {
   description = "The metrics-server version to use. See https://github.com/aws/aws-node-termination-handler/releases for available versions"
   type        = string
-  default     = "1.6.1"
+  default     = "1.7.0"
 }
 
 variable "ignore_daemon_sets" {
