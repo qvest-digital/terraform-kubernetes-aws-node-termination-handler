@@ -7,11 +7,11 @@ on:
     branches:
     - master
 jobs:
-  build:
+  validate:
     name: Validate Terraform Module
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     container:
-      image: docker.io/hashicorp/terraform:0.12.24
+      image: docker.io/hashicorp/terraform:0.13.2
     steps:
     - name: git checkout
       uses: actions/checkout@v2
@@ -19,3 +19,13 @@ jobs:
       run: terraform init -backend=false
     - name: Validate Terraform Module Syntax
       run: terraform validate
+  #security_scanner:
+  #  name: Run tfsec Security Scanner
+  #  runs-on: ubuntu-20.04
+  #  container:
+  #    image: docker.io/liamg/tfsec:v0.25.0
+  #  steps:
+  #  - name: git checkout
+  #    uses: actions/checkout@v2
+  #  - name: Run security scanner
+  #    run: tfsec .
