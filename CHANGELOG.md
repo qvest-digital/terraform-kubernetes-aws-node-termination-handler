@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.0] - 2020-09-08
 
-## Updates
+### Updates
 
 - Default version of the used AWS node termination handler has been
   updated to 1.7.0.
