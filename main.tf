@@ -247,6 +247,7 @@ resource "kubernetes_daemonset" "this" {
           name              = "aws-node-termination-handler"
           port {
             container_port = 9092
+            host_port      = 9092
             name           = "prometheus"
             protocol       = "TCP"
           }
