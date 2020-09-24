@@ -64,7 +64,7 @@ resource "kubernetes_cluster_role_binding" "this" {
     api_group = ""
     kind      = "ServiceAccount"
     name      = kubernetes_service_account.this.metadata[0].name
-    namespace = kubernetes_service_account.this.metadata[0].name
+    namespace = kubernetes_service_account.this.metadata[0].namespace
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
