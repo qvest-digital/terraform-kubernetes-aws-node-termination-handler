@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.1] - 2020-09-24
 
+Thanks for the fix, [Nigel](https://github.com/nigelellis)!
+
 ### Fixed
 
 - A bug in the ClusterRoleBinding where the name of the service account and
@@ -21,11 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.1] - 2020-09-08
 
-## Fixes
-
 Thanks for the fix, [Nigel](https://github.com/nigelellis)!
 
-- Specify host_post to avoid perpetual diffs ([#3](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/3))
+## Fixed
+
+- Specify `host_post` to avoid perpetual diffs ([#3](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/3))
 
 ## [2.0.0] - 2020-07-15
 
