@@ -28,6 +28,32 @@ variable "pod_termination_grace_period" {
   default     = "-1"
 }
 
+variable "webhook_url" {
+  description = "If specified, posts event data to URL upon instance interruption action."
+  type        = string
+  default     = ""
+}
+
+variable "webhook_proxy" {
+  description = "If specified, uses the HTTP(S) proxy to send webhooks."
+  type        = string
+  default     = ""
+}
+
+variable "webhook_headers" {
+  description = "If specified, replaces the default webhook headers."
+  type        = map(string)
+  default = {
+    "Content-type" = "application/json"
+  }
+}
+
+variable "webhook_template" {
+  description = "If specified, replaces the default webhook message template."
+  type        = string
+  default     = ""
+}
+
 variable "enable_scheduled_event_draining" {
   description = "If true, drain nodes before the maintenance window starts for an EC2 instance scheduled event."
   type        = bool

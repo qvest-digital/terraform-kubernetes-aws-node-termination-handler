@@ -196,15 +196,19 @@ resource "kubernetes_daemonset" "this" {
           }
           env {
             name  = "WEBHOOK_URL"
-            value = ""
+            value = var.webhook_url
+          }
+          env {
+            name  = "WEBHOOK_PROXY"
+            value = var.webhook_proxy
           }
           env {
             name  = "WEBHOOK_HEADERS"
-            value = ""
+            value = jsonencode(var.webhook_headers)
           }
           env {
             name  = "WEBHOOK_TEMPLATE"
-            value = ""
+            value = var.webhook_template
           }
           env {
             name  = "DRY_RUN"
