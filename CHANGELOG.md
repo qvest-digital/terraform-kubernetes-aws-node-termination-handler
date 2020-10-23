@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2020-10-23
+
+This is the first release that requires at least Terraform 0.13.0.
+The latest compatibiliy releases in the 0.12 series (0.12.29 as this release is being made)
+might work, but it is no longer officially supported by the module's maintainers.
+
+### Changed
+
+- Terraform 0.13.x is required to use this module.
+
+### Added
+
+- Webhook configuration options can be specified as input variables. ([#6](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/6))
+
+### Updated
+
+- Default version of the aws-node-termination-handler has been set to v1.9.0.
+
 ## [2.1.1] - 2020-09-24
 
 Thanks for the fix, [Nigel](https://github.com/nigelellis)!
@@ -12,7 +30,7 @@ Thanks for the fix, [Nigel](https://github.com/nigelellis)!
 ### Fixed
 
 - A bug in the ClusterRoleBinding where the name of the service account and
-  it's namespace got mixed up, was corrected ([#5](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/5))
+  it's namespace got mixed up, was corrected. ([#5](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/5))
 
 ## [2.1.0] - 2020-09-08
 
@@ -27,7 +45,7 @@ Thanks for the fix, [Nigel](https://github.com/nigelellis)!
 
 ## Fixed
 
-- Specify `host_post` to avoid perpetual diffs ([#3](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/3))
+- Specify `host_post` to avoid perpetual diffs. ([#3](https://github.com/iplabs/terraform-kubernetes-aws-node-termination-handler/issues/3))
 
 ## [2.0.0] - 2020-07-15
 
