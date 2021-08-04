@@ -1,17 +1,12 @@
 name: Validate Module
-on:
-  push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+on: pull_request
+
 jobs:
   validate:
     name: Validate Terraform Module
     runs-on: ubuntu-20.04
     container:
-      image: docker.io/hashicorp/terraform:0.13.2
+      image: docker.io/hashicorp/terraform:1.0.3
     steps:
     - name: git checkout
       uses: actions/checkout@v2

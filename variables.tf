@@ -1,7 +1,7 @@
 variable "node_termination_handler_version" {
   description = "The version to use. See https://github.com/aws/aws-node-termination-handler/releases for available versions"
   type        = string
-  default     = "1.9.0"
+  default     = "1.13.2"
 }
 
 variable "ignore_daemon_sets" {

@@ -13,6 +13,6 @@ snippet might be used.
 ```hcl
 module "aws_node_termination_handler" {
   source  = "iplabs/aws-node-termination-handler/kubernetes"
-  version = "2.1.1"
+  version = "3.0.1"
 }
 ```
