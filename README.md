@@ -12,7 +12,7 @@ snippet might be used.
 
 ```hcl
 module "aws_node_termination_handler" {
-  source  = "iplabs/aws-node-termination-handler/kubernetes"
-  version = "2.1.1"
+  source  = "qvest-digital/aws-node-termination-handler/kubernetes"
+  version = "4.0.0"
 }
 ```

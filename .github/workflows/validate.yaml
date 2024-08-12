@@ -9,16 +9,26 @@ on:
 jobs:
   validate:
     name: Validate Terraform Module
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        tf_version:
+        - terraform:1.7
+        - terraform:latest
+        - opentofu:latest
     container:
-      image: docker.io/hashicorp/terraform:0.13.2
+      image: ${{ startsWith(matrix.tf_version, 'terraform') && format('{0}/{1}', 'docker.io/hashicorp', matrix.tf_version) || format('{0}/{1}', ' ghcr.io/opentofu', matrix.tf_version) }}
+    env:
+      TF_EXE: ${{ startsWith(matrix.tf_version, 'terraform') && 'terraform' || 'tofu' }}
     steps:
     - name: git checkout
-      uses: actions/checkout@v2
-    - name: Initialize Terraform
-      run: terraform init -backend=false
+      uses: actions/checkout@v4
+    - name: Initialize ${{ matrix.tf_version }}
+      run: |
+        "${TF_EXE}" init -backend=false
     - name: Validate Terraform Module Syntax
-      run: terraform validate
+      run: |
+        "${TF_EXE}" validate
   #security_scanner:
   #  name: Run tfsec Security Scanner
   #  runs-on: ubuntu-20.04
